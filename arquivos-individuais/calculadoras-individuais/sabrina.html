@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira - BananApp</title>
+</head>
+<body style="background-color: beige">
+
+    <div>
+    <h1 style="color: goldenrod;">Calculadora financeira BananaApp</h1>
+
+    <p><h4 style="color: #5D4037;">
+    Baseado em pesquisas, o mercado de bananas hoje joga fora de 40% a 60% do que produz anualmente, devido a falta de controle térmico, amadurecimento precoce e chilling injury.<br>
+    Com a implementação do nosso sistema de monitoramento térmico em câmeras de maturação e armazenamento de banana nanica, nosso foco é eliminar o prejuízo financeiro e o desperdício de alimentos</h4></p> <br>
+    
+    <h2 style="color: goldenrod;">Faça uma simulação para verificar qual pode ter sido sua perda anual: </h2>
+    </div>
+
+    <div>
+    <h4><b style="color: rgba(102, 93, 49, 0.864);">Digite o ano que você deseja calcular:</b>
+    <input type="number" id="input_ano"><br><br>
+
+    <b style="color: rgba(102, 93, 49, 0.864);">Digite qual foi o valor total do investimento:</b>
+    <input type="number" id="input_investimento"><br><br>
+    
+    <b style="color: rgba(102, 93, 49, 0.864);">Digite quantos kg de banana você vendeu:</b>
+    <input type="number" id="input_qtdvendida"><br><br>
+
+    <b style="color: rgba(102, 93, 49, 0.864);">Digite qual o valor que você vendeu o kg da banana:</b>
+    <input type="number" id="input_valorvenda"><br><br>
+    </div>
+
+    <button onclick="calcular()">Calcular os valores</button>
+    <br> <br>
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+function calcular(){
+let investimento = Number(input_investimento.value);
+let qtdvendida = Number(input_qtdvendida.value);
+let valorvenda = Number(input_valorvenda.value);
+let ano = input_ano.value;
+
+let percentual40 = 40
+let percentual60 = 60
+
+
+let faturamento = valorvenda * qtdvendida;
+let lucroBruto = faturamento - investimento;
+
+let perdaMinima = (faturamento * 40) / 100
+let perdaMaxima = (faturamento * 60) / 100
+
+let potencialMinimo = faturamento + perdaMinima;
+let potencialMaximo = faturamento + perdaMaxima;
+
+div_msg.innerHTML = `<span style="color: rgba(122, 96, 57, 0.864);"> 
+Relatório de Operação do ${ano}<br>
+O valor do seu investimento foi de: <b>R$${investimento}</b><br>
+O valor do seu faturamento foi de: <b>R$${faturamento}</b><br><br>
+
+Baseado em perdas de 40% a 60% na cadeia da banana:<br>
+Você pode ter deixado de ganhar entre <b>R$${perdaMinima}(40%)</b> à <b>R$${perdaMaxima}(60%)<br><br>   
+Projeção do faturamento: <br> Potencial (mínimo): R$ ${potencialMinimo} <br> Potencial (máximo): R$ ${potencialMaximo}</b><br>
+`
+}
+
+
+</script>
