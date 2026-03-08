@@ -1,0 +1,38 @@
+/*
+Nome: Sabrina de Sousa Toledo
+RA 01261004
+*/
+
+CREATE DATABASE bananAPI;
+USE bananAPI;
+
+CREATE TABLE cadastroEmpresa (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+CNPJ CHAR(14) NOT NULL,
+logadouro VARCHAR(50) NOT NULL,
+estado CHAR(2),
+CEP CHAR(8) NOT NULL,
+email VARCHAR(50) NOT NULL,
+senha VARCHAR(12), 
+dtCadastro_empresa DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE cadastroFuncionario (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+CNPJEmpresa CHAR(14) NOT NULL,
+matricula VARCHAR(20),
+email VARCHAR(60) NOT NULL,
+senha VARCHAR(12), 
+dtCadastro_funcionario DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE temperatura (
+id_temperatura INT PRIMARY KEY AUTO_INCREMENT,
+numero_camara INT, 
+temperatura DECIMAL(3,1),
+dtCadastro_temperatura DATETIME DEFAULT CURRENT_TIMESTAMP
+);
