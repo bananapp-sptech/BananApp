@@ -49,21 +49,23 @@ remetente varchar(50)
 -- Insert & Select
 -- TABELA CADASTRO USUARIOS 
 
-insert into cadastro_usuario values
+insert into cadastro_usuario value
 (default, 'CEAGESP', 35298762159832, 'Ana Beatriz Cavalcanti', '32198405021', 'Operador de Câmara Fria', 'anab.cavalcanti@email.com', 'anab87B6*', default);
-insert into cadastro_usuario values
+insert into cadastro_usuario value
 (default, 'CEASA', 56498203769853, 'Marcos Vinícius Oliveira', '65412398075', 'Técnico em Refrigeração', 'mvinicius.oliveira@email.com', 'mvini7#xa', default);
-insert into cadastro_usuario values
+insert into cadastro_usuario value
 (default, 'Entreposto MG', 14298763022159, 'Letícia Guimarães Rosa', '98765432109', 'Responsável Técnico', 'leticia.grosa@email.com', 'let@5874', default);
-insert into cadastro_usuario values
+insert into cadastro_usuario value
 (default, 'bananasTop', 79850636812020, 'Adriana Lima de Souza', '76545609812', 'Responsável Técnica', 'Adriana.Lima@bananaTop.com', 'Adriana987@1', default);
-insert into cadastro_usuario values
+insert into cadastro_usuario value
 (default, 'entrepostoBrasileiro', 35626526265295, 'Maria Cristina Mendes', '98767895609', 'Operadora de camara fria', 'Maria.Cristina@entrepostoBrasil.com', 'Maria387Cristina*?', default);
 
 select * from cadastro_usuario;
 select nome_empresa, cnpj_empresa, nome_completo, cpf, email_usuario from cadastro_usuario;
 update cadastro_usuario set email_usuario = 'adriana.Lima@bananatoop.com' where id_usuario = 4;
-select nome_empresa as 'Nome da empresa', nome_completo as 'Nome do funcionário', cnpj_empresa as 'CNPJ', cpf as 'CPF', cargo_usuario as 'Cargo do funcionário', email_usuario as 'E-mail do funcionário' FROM cadastro_usuario;
+select nome_empresa as 'Nome da empresa', nome_completo as 'Nome do funcionário', 
+	cnpj_empresa as 'CNPJ', cpf as 'CPF', cargo_usuario as 'Cargo do funcionário', 
+    email_usuario as 'E-mail do funcionário' FROM cadastro_usuario;
 select nome_completo, email_usuario from cadastro_usuario;
 
 -- TABELA CADASTRO CAMARAS 
@@ -106,9 +108,11 @@ select * from temperatura;
 select temperatura from temperatura where id_temperatura = 3;
 select numero_camara, temperatura from temperatura;
 select * from temperatura where temperatura > 14;
-select id_temperatura as 'id', numero_camara as 'Número da câmara', temperatura as 'Temperatura', datahora_temperatura as 'Data do registro' from temperatura;
+select id_temperatura as 'id', numero_camara as 'Número da câmara', 
+temperatura as 'Temperatura', datahora_temperatura as 'Data do registro' from temperatura;
 
-SELECT id_temperatura AS 'id', numero_camara AS 'Número da câmara', temperatura AS 'Temperatura', datahora_temperatura AS 'Data do registro',
+SELECT id_temperatura AS 'id', numero_camara AS 'Número da câmara', 
+temperatura AS 'Temperatura', datahora_temperatura AS 'Data do registro',
 CASE  
 WHEN temperatura < 13 THEN 'Risco chilling injury.' 
 WHEN temperatura >= 24 THEN 'Risco de maturação precoce.'
@@ -134,6 +138,9 @@ alter table distribuicao add column data_cadastro datetime default current_times
 select * from distribuicao;
 select * from distribuicao where remetente like '%Mercado%';
 select nome_entreposto as 'Nome do entreposto', estado as 'Estado', qtd_lotes as 'Quantidade de lotes' from distribuicao where preco_lote >= 140;
-select id_distribuicao as 'id', nome_entreposto as 'Nome do entreposto', estado as 'Estado', qtd_lotes as 'Quantidade de lotes', preco_lote as 'Preço do lote', remetente as 'Remetente', data_cadastro as 'Data do cadastro' from distribuicao;
+select id_distribuicao as 'id', nome_entreposto as 'Nome do entreposto', 
+	estado as 'Estado', qtd_lotes as 'Quantidade de lotes', preco_lote as 'Preço do lote', 
+  remetente as 'Remetente', data_cadastro as 'Data do cadastro' from distribuicao;
+
 
 
