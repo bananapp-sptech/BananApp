@@ -44,15 +44,15 @@ let qtdvendida = Number(input_qtdvendida.value);
 let valorvenda = Number(input_valorvenda.value);
 let ano = input_ano.value;
 
-let percentual40 = 40
-let percentual60 = 60
+let percentual40 = 10
+let percentual60 = 20
 
 
 let faturamento = valorvenda * qtdvendida;
 let lucroBruto = faturamento - investimento;
 
-let perdaMinima = (faturamento * 40) / 100
-let perdaMaxima = (faturamento * 60) / 100
+let perdaMinima = (faturamento * 10) / 100
+let perdaMaxima = (faturamento * 20) / 100
 
 let potencialMinimo = faturamento + perdaMinima;
 let potencialMaximo = faturamento + perdaMaxima;
@@ -63,7 +63,7 @@ O valor do seu investimento foi de: <b>R$${investimento}</b><br>
 O valor do seu faturamento foi de: <b>R$${faturamento}</b><br><br>
 
 Baseado em perdas de 40% a 60% na cadeia da banana:<br>
-Você pode ter deixado de ganhar entre <b>R$${perdaMinima}(40%)</b> à <b>R$${perdaMaxima}(60%)<br><br>   
+Você pode ter deixado de ganhar entre <b>R$${perdaMinima}(10%)</b> à <b>R$${perdaMaxima}(20%)<br><br>   
 Projeção do faturamento: <br> Potencial (mínimo): R$ ${potencialMinimo} <br> Potencial (máximo): R$ ${potencialMaximo}</b><br>
 `
 }
