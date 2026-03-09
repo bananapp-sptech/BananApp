@@ -48,6 +48,7 @@ remetente varchar(50)
 
 -- Insert & Select
 -- TABELA CADASTRO USUARIOS 
+
 insert into cadastro_usuario values
 (default, 'CEAGESP', 35298762159832, 'Ana Beatriz Cavalcanti', '32198405021', 'Operador de Câmara Fria', 'anab.cavalcanti@email.com', 'anab87B6*', default);
 insert into cadastro_usuario values
