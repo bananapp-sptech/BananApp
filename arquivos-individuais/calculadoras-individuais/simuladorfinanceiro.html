@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador Financeiro - Monitoramento de Bananas</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Simulador de Impacto Financeiro</h2>
+    <label>Carga Total do Lote (em Toneladas):</label>
+    <input type="number" id="carga" placeholder="Ex: 40"> <br>
+
+    <label>Custo pelo lote (R$ por quilo):</label>
+    <input type="number" id="custo" placeholder="Ex: 1.50"> <br>
+
+    <label>Preço de Venda (R$ por quilo):</label>
+    <input type="number" id="preco" placeholder="Ex: 3.50"> <br>
+
+    <label>Percentual de Perda Atual (%):</label>
+    <input type="number" id="perda_atual" placeholder="Frequente entre 40% e 60%" min="0" max="100"> <br>
+
+    <button onclick="calcularSimulacao()">Simular Economia</button>
+
+    <div id="resultado"></div>
+</div>
+
+<script>
+    function calcularSimulacao() {
+        let cargaTon= Number(carga.value)
+        let precoKg = Number(preco.value);
+        let v_custo = Number(custo.value);
+        let perdaPct = Number(perda_atual.value) / 100;
+        let cargaKg = cargaTon * 1000;
+        let valorLucro = cargaKg * precoKg - v_custo;
+        let prejuizoAtual = valorLucro * perdaPct;
+        let economiaGanhada = prejuizoAtual * 0.15; 
+        let toneladasSalvas = (cargaTon * perdaPct) * 0.15;
+
+        resultado.innerHTML = `
+            <p>Valor previsto de Lucro: R$ ${valorLucro}</p>
+            <p>Prejuízo Estimado com a porcentagem de perdas R$ ${prejuizoAtual}</p>
+            <hr>
+            <p>Com nosso monitoramento (redução estimada de 15%):</p>
+            <p>Economia Gerada:R$ ${economiaGanhada}</p>
+            <p>Toneladas Salvas: ${toneladasSalvas} Toneladas</p>
+        `;
+    }
+</script>
+
+</body>
+</html>
