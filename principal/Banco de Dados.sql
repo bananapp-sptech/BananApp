@@ -1,15 +1,3 @@
-/* 
-GRUPO 04
-Nome: Beatriz Reis         | RA: 01261094 
-Nome: Joao Miguel          | RA: 01261142 
-Nome: Miguel Carvalho      | RA: 01261101 
-Nome: Oscar Gomes          | RA: 01261097 
-Nome: Sabrina Toledo       | RA: 01261004 
-Nome: Vinicius Martins     | RA: 01261125 
-Nome: Vinicius Menezes     | RA: 01261000 
-Nome: Vitor Lucas          | RA: 01261088 
-*/
-
 create database BananApp;
 use BananApp;
 
