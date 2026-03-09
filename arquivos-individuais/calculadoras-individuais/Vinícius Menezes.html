@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora BananaApp</title>
+</head>
+<body>
+
+    <h2>Calculadora de Desperdício - Monitoramento LM35</h2>
+
+    Quantas caixas de banana você armazena por mês? <br>
+    <input type="text" id="input_qtd_caixas"> <br><br>
+
+    Qual o valor de venda de cada caixa (R$)? <br>
+    <input type="text" id="input_valor_caixa"> <br><br>
+
+    Qual a sua perda atual por maturação rápida (%)? <br>
+    <input type="text" id="input_porcentagem_perda"> <br><br>
+
+    <button onclick="calcular_prejuizo()">Analisar situação atual</button>
+    <button onclick="gerar_relatorio()">Possiveis resultados</button>
+
+    <div id="div_resultado"></div>
+
+    <script>
+        function calcular_prejuizo() {
+            
+            let caixas = Number(input_qtd_caixas.value);
+            let valorCaixa = Number(input_valor_caixa.value);
+            let porcentagem = Number(input_porcentagem_perda.value);
+
+            let faturamento_sem_perdas = caixas * valorCaixa;
+
+            let prejuizo_em_reais = faturamento_sem_perdas * (porcentagem / 100);
+
+            div_resultado.innerHTML = `
+                <br>
+                Seu faturamento bruto seria de: <b>R$ ${faturamento_sem_perdas}</b> <br>
+                Porém, com uma perda de ${porcentagem}%, você está perdendo: <b style="color: red;">R$ ${prejuizo_em_reais}</b> por mês! <br>
+                faturando somente R$ ${faturamento_sem_perdas - prejuizo_em_reais} por mês<br>
+                Com o sensor LM35, podemos reduzir essa perda significativamente para 15%.
+            `;
+        }
+
+        function gerar_relatorio() {
+            let caixas = Number(input_qtd_caixas.value);
+            let valor = Number(input_valor_caixa.value);
+            let perdaAnterior = Number(input_porcentagem_perda.value);
+
+            let novaPerda = 15;
+            let faturamentoTotal = caixas * valor;
+            
+            let prejuizoAntigo = faturamentoTotal * (perdaAnterior / 100);
+            let novoPrejuizo = faturamentoTotal * (novaPerda / 100);
+            let economiaMensal = prejuizoAntigo - novoPrejuizo;
+            let economiaAnual = economiaMensal * 12;
+
+            div_resultado.innerHTML = ` Relatório de Otimização usando o Sensor LM35<br><br>
+            Com o monitoramento de precisão do sensor LM35, sua perda estimada cai para ${novaPerda}%<br>
+            Economia Mensal: <b style= "color: blue;">R$ ${economiaMensal}</b><br>
+            Possível Economia Anual: <b style= "color: blue;">R$ ${economiaAnual}</b><br>`
+            }
+    </script>
+
+</body>
+</html>
