@@ -1,5 +1,5 @@
-create database BananApp;
-use BananApp;
+create database BananAPI;
+use BananAPI;
 
 -- Tabela para Cadastro de Usuário no Site Institucional
 create table cadastro_usuario (
