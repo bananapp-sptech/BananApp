@@ -30,27 +30,6 @@
 </html>
 <script>
   function emitir() {
-    let bananas = Number(input_qtdBananas.value);
-    let paga = Number(input_paga.value);
-    let perdaPorCem = Number(input_perda.value) / 100;
-    let valor = Number(input_valorVenda.value);
-
-    
-    let aproveitamento = bananas * 0.15;
-    let vendasaproveitadas = valor * aproveitamento;
-    let vendas = bananas * 0.95 * valor;
-    let perdaKg = bananas * perdaPorCem;
-    let lucroPorKg = valor - paga;
-    let prejuizo = perdaKg * lucroPorKg;
-
-
-    div_mensagem.innerHTML = `
-     Neste mês, seu entreposto recebeu ${bananas} kg de Banana Nanica. <br>
-     Você está deixando de lucrar <b style="color:red;">R$ ${prejuizo}</b> por mês! <br>
-     <br>
-     Nosso serviço pode evitar o desperdiço de <b style = "color: green;">${aproveitamento} kg</b>,
-     aproximadamente <b style = "color: green;">15%</b>, resultando em R$ <b style = "color: green;">${vendasaproveitadas}</b>. <br>
-     <br>
-     Faturamento: R$<b style = "color: green;">${vendas}</b>`;
+    //arrumando
   }
 </script>
