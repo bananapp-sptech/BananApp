@@ -14,7 +14,7 @@
         <div class="perguntas">Volume mensal de bananas:</div>
         <input type="number" id="input_qtdBananas" placeholder="Kg" /> <br />
         <div class="perguntas">Qual sua atual porcentagem de perda:</div>
-        <input type="number" id="input_perda" placeholder="EX 40 ou 60" />
+        <input type="number" id="input_perda" placeholder="De 10 a 20" />
         <br />
         <div class="perguntas">Valor investido</div>
         <input type="number" id="input_paga" placeholder="R$ porKg" /> <br />
@@ -46,9 +46,9 @@
 
     div_mensagem.innerHTML = `
      Neste mês, seu entreposto recebeu ${bananas} kg de Banana Nanica. <br>
-     Você está deixando de lucrar <b style="color:red;">R$ ${prejuizo}</b> por mês!; <br>
+     Você está deixando de lucrar <b style="color:red;">R$ ${prejuizo}</b> por mês! <br>
      <br>
-     O aproveitamento de produto com o nosso serviço instalado foi de <b style = "color: green;">${aproveitamento}</b>,
+     Nosso serviço pode evitar o desperdiço de <b style = "color: green;">${aproveitamento} kg</b>,
      aproximadamente <b style = "color: green;">15%</b>. <br>
      resultando em R$ <b style = "color: green;">${vendasaproveitadas}</b>. <br>
      <br>
