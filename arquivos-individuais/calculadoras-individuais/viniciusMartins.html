@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador Financeiro - Monitoramento de Bananas</title>
+</head>
+<style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f5f5; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            color: #1c253c; 
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #1c253c;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box; /* Garante que o padding não aumente a largura */
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #efb661; /* Amarelo da SPTech [1] */
+            color: #1c253c;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #d9a552;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #efb661;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .destaque-negativo { color: #ED145B; font-weight: bold; } /* Cor de erro/alerta [2] */
+        .destaque-positivo { color: #27ae60; font-weight: bold; }
+    </style>
+<body>
+
+<div class="container">
+    <h2>Simulador de Impacto Financeiro</h2>
+    <label>Carga Total do Lote (em Toneladas):</label>
+    <input type="number" id="carga" placeholder="Ex: 40"> <br>
+
+    <label>Custo pelo lote (R$ por quilo):</label>
+    <input type="number" id="custo" placeholder="Ex: 1.50"> <br>
+
+    <label>Preço de Venda (R$ por quilo):</label>
+    <input type="number" id="preco" placeholder="Ex: 3.50"> <br>
+
+    <label>Percentual de Perda Atual (%):</label>
+    <input type="number" id="perda_atual" placeholder="Frequente entre 40% e 60%" min="0" max="100"> <br>
+
+    <button onclick="calcularSimulacao()">Simular Economia</button>
+
+    <div id="resultado"></div>
+</div>
+
+<script>
+    function calcularSimulacao() {
+        let cargaTon= Number(carga.value)
+        let precoKg = Number(preco.value);
+        let v_custo = Number(custo.value);
+        let perdaPct = Number(perda_atual.value) / 100;
+        let cargaKg = cargaTon * 1000;
+        let valorLucro = cargaKg * precoKg - v_custo;
+        let prejuizoAtual = valorLucro * perdaPct;
+        let economiaGanhada = prejuizoAtual * 0.15; 
+        let toneladasSalvas = (cargaTon * perdaPct) * 0.15;
+
+        resultado.innerHTML = `
+            <p>Valor previsto de Lucro: R$ ${valorLucro}</p>
+            <p>Prejuízo Estimado com a porcentagem de perdas R$ ${prejuizoAtual}</p>
+            <hr>
+            <p>Com nosso monitoramento (redução estimada de 15%):</p>
+            <p>Economia Gerada:R$ ${economiaGanhada}</p>
+            <p>Toneladas Salvas: ${toneladasSalvas} Toneladas</p>
+        `;
+    }
+</script>
+
+</body>
+</html>
+
