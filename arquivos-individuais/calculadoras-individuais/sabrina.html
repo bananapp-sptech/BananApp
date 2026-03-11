@@ -11,7 +11,7 @@
     <h1 style="color: goldenrod;">Calculadora financeira BananaAPI</h1>
 
     <p><h4 style="color: #5D4037;">
-    Baseado em pesquisas, o mercado de bananas hoje joga fora de 40% a 60% do que produz anualmente, devido a falta de controle térmico, amadurecimento precoce e chilling injury.<br>
+    Baseado em pesquisas, o mercado de bananas hoje joga fora de 10% a 20% do que produz anualmente, devido a falta de controle térmico, amadurecimento precoce e chilling injury.<br>
     Com a implementação do nosso sistema de monitoramento térmico em câmeras de maturação e armazenamento de banana nanica, nosso foco é eliminar o prejuízo financeiro e o desperdício de alimentos</h4></p> <br>
     
     <h2 style="color: goldenrod;">Faça uma simulação para verificar qual pode ter sido sua perda anual: </h2>
@@ -44,25 +44,24 @@ let qtdvendida = Number(input_qtdvendida.value);
 let valorvenda = Number(input_valorvenda.value);
 let ano = input_ano.value;
 
-let percentual40 = 10
-let percentual60 = 20
-
+let percentualminimo = 10
+let percentualmaximo = 20
 
 let faturamento = valorvenda * qtdvendida;
-let lucroBruto = faturamento - investimento;
 
-let perdaMinima = (faturamento * 10) / 100
-let perdaMaxima = (faturamento * 20) / 100
+// o valor do 100%, o faturamento já esta incluindo na perda
+let potencialMinimo = (faturamento * 100) / 90 // 10% estragou - vendeu 90%
+let potencialMaximo = (faturamento * 100) / 80 // 20% estragou - vendeu 80%
 
-let potencialMinimo = faturamento + perdaMinima;
-let potencialMaximo = faturamento + perdaMaxima;
+let perdaMinima = potencialMinimo - faturamento
+let perdaMaxima = potencialMaximo - faturamento
 
 div_msg.innerHTML = `<span style="color: rgba(122, 96, 57, 0.864);"> 
 Relatório de Operação do ${ano}<br>
 O valor do seu investimento foi de: <b>R$${investimento}</b><br>
 O valor do seu faturamento foi de: <b>R$${faturamento}</b><br><br>
 
-Baseado em perdas de 40% a 60% na cadeia da banana:<br>
+Baseado em perdas de 10% a 20% na cadeia da banana:<br>
 Você pode ter deixado de ganhar entre <b>R$${perdaMinima}(10%)</b> à <b>R$${perdaMaxima}(20%)<br><br>   
 Projeção do faturamento: <br> Potencial (mínimo): R$ ${potencialMinimo} <br> Potencial (máximo): R$ ${potencialMaximo}</b><br>
 `
