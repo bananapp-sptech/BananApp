@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>coloque quantas toneladas de banana nanica o seu entreposto acaba desperdiçando <input type="text" id="desperdicio"></p>
+    <p>coloque a que valor você vende a tonelada da banana<input type="text" id="preco"></p>
+    <button onclick="calcular()">Calcule o quanto você vai economizar com o nosso dispositivo</button>
+    <div id="mensagem"></div>
+</body>
+<script>
+    function calcular(){
+        let valorDesperdicio = Number(desperdicio.value);
+        let valorPreco = Number(preco.value);
+        let valorBananaDesp = valorDesperdicio * valorPreco; 
+        let economia = valorBananaDesp * 60  / 100
+
+        mensagem.innerHTML = `Você desperdiça cerca de ${valorDesperdicio} toneladas de banana nanica a R$${valorPreco} trazendo um prejuízo de 
+        ${valorBananaDesp} o nosso dispositivo fará você ter 60% a menos de prejuízo sendo neste caso R$${economia}`;
+    }
+</script>
+</html>
